@@ -1,0 +1,69 @@
+<Page x:Class="SAE2._2_puissance4.PageMenu"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Background="#1A1A1A"
+      Title="Menu Principal">
+
+    <Page.Resources>
+        <!-- Style des boutons du menu -->
+        <Style x:Key="BoutonMenu" TargetType="Button">
+            <Setter Property="Background"   Value="#2C2C2C"/>
+            <Setter Property="Foreground"   Value="White"/>
+            <Setter Property="FontSize"     Value="15"/>
+            <Setter Property="FontFamily"   Value="Segoe UI"/>
+            <Setter Property="Padding"      Value="20,12"/>
+            <Setter Property="Margin"       Value="0,8"/>
+            <Setter Property="Width"        Value="280"/>
+            <Setter Property="BorderBrush" Value="#555"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Cursor"       Value="Hand"/>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#444"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Page.Resources>
+
+    <Grid>
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+
+			<TextBlock Text="Puissance 4"
+                       FontSize="42" FontWeight="Bold"
+                       Foreground="White"
+                       FontFamily="Segoe UI"
+                       HorizontalAlignment="Center"
+                       Margin="0,0,0,10"/>
+
+			<Button x:Name="BtnNouvellePartie"
+                    Content=" Commencer une nouvelle partie"
+                    Style="{StaticResource BoutonMenu}"
+                    Click="BtnNouvellePartie_Click"/>
+
+            <Button x:Name="BtnPersonnalisation"
+                    Content=" Personnaliser l'interface"
+                    Style="{StaticResource BoutonMenu}"
+                    Click="BtnPersonnalisation_Click"/>
+
+            <Button x:Name="BtnStatistiques"
+                    Content=" Voir les statistiques"
+                    Style="{StaticResource BoutonMenu}"
+                    Click="BtnStatistiques_Click"/>
+
+			<Button x:Name="BtnChargerPartie" 
+                    Content="Chargez une de vos partie" 
+                    Style="{StaticResource BoutonMenu}"
+                    Click="BtnChargerPartie_Click"/>
+
+			<Separator Background="#444" Margin="0,20"/>
+
+
+            <Button x:Name="BtnQuitter"
+                    Content="Quitter"
+                    Style="{StaticResource BoutonMenu}"
+                    Background="#3A1A1A"
+                    Click="BtnQuitter_Click"/>
+
+        </StackPanel>
+    </Grid>
+</Page>

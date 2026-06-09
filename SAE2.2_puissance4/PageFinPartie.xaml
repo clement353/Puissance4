@@ -1,0 +1,58 @@
+<Page x:Class="SAE2._2_puissance4.PageFinPartie"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Background="#1A1A1A"
+      Title="Fin de partie">
+
+    <Page.Resources>
+        <Style x:Key="BoutonFin" TargetType="Button">
+            <Setter Property="Background"      Value="#2C2C2C"/>
+            <Setter Property="Foreground"      Value="White"/>
+            <Setter Property="FontSize"        Value="14"/>
+            <Setter Property="Padding"         Value="20,12"/>
+            <Setter Property="Margin"          Value="0,10"/>
+            <Setter Property="Width"           Value="260"/>
+            <Setter Property="BorderBrush"    Value="#555"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Cursor"          Value="Hand"/>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#444"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Page.Resources>
+
+    <Grid>
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+
+            <!-- Message de résultat -->
+            <TextBlock x:Name="TxtResultat"
+                       FontSize="36" FontWeight="Bold"
+                       Foreground="White"
+                       HorizontalAlignment="Center"
+                       TextAlignment="Center"
+                       Margin="0,0,0,40"/>
+
+            <!-- Bouton : Rejouer avec les mêmes paramètres -->
+            <Button x:Name="BtnRejouer"
+                    Content="Rejouer"
+                    Style="{StaticResource BoutonFin}"
+                    Background="#1A3A1A"
+                    Click="BtnRejouer_Click"/>
+
+            <!-- Bouton : Changer les paramètres et rejouer -->
+            <Button x:Name="BtnChangerParams"
+                    Content="Changer les paramètres et rejouer"
+                    Style="{StaticResource BoutonFin}"
+                    Click="BtnChangerParams_Click"/>
+
+            <!-- Bouton : Retour au menu -->
+            <Button x:Name="BtnMenu"
+                    Content="Retour au menu principal"
+                    Style="{StaticResource BoutonFin}"
+                    Click="BtnMenu_Click"/>
+
+        </StackPanel>
+    </Grid>
+</Page>

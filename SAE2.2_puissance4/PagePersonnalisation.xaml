@@ -1,0 +1,168 @@
+﻿<Page x:Class="SAE2._2_puissance4.PagePersonnalisation"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Background="#1A1A1A"
+      Title="Personnalisation">
+
+	<Page.Resources>
+		<Style x:Key="Titre" TargetType="TextBlock">
+			<Setter Property="Foreground"   Value="White"/>
+			<Setter Property="FontSize"     Value="15"/>
+			<Setter Property="FontWeight"   Value="Bold"/>
+			<Setter Property="FontFamily"   Value="Segoe UI"/>
+			<Setter Property="Margin"       Value="0,20,0,8"/>
+		</Style>
+		<Style x:Key="ComboStyle" TargetType="ComboBox">
+			<Setter Property="Background"   Value="#2C2C2C"/>
+			<Setter Property="Foreground"   Value="White"/>
+			<Setter Property="FontSize"     Value="14"/>
+			<Setter Property="Width"        Value="200"/>
+			<Setter Property="Padding"      Value="8,6"/>
+			<Setter Property="BorderBrush"  Value="#555"/>
+		</Style>
+		<Style x:Key="BoutonAction" TargetType="Button">
+			<Setter Property="Background"      Value="#2C2C2C"/>
+			<Setter Property="Foreground"      Value="White"/>
+			<Setter Property="FontSize"        Value="14"/>
+			<Setter Property="Padding"         Value="20,10"/>
+			<Setter Property="Margin"          Value="8,0"/>
+			<Setter Property="BorderBrush"     Value="#555"/>
+			<Setter Property="BorderThickness" Value="1"/>
+			<Setter Property="Cursor"          Value="Hand"/>
+			<Style.Triggers>
+				<Trigger Property="IsMouseOver" Value="True">
+					<Setter Property="Background" Value="#444"/>
+				</Trigger>
+			</Style.Triggers>
+		</Style>
+	</Page.Resources>
+
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="60"/>
+			<RowDefinition Height="*"/>
+			<RowDefinition Height="80"/>
+		</Grid.RowDefinitions>
+
+		<!-- En-tête -->
+		<Grid Grid.Row="0" Background="#111">
+			<Button Content=" Retour"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center"
+                    Margin="20,0"
+                    Background="Transparent"
+                    Foreground="#AAA"
+                    BorderThickness="0"
+                    FontSize="13"
+                    Cursor="Hand"
+                    Click="BtnRetour_Click"/>
+			<TextBlock Text="Personnaliser votre interface de jeux"
+                       FontSize="20" FontWeight="Bold"
+                       Foreground="White"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"/>
+		</Grid>
+
+		<!-- Contenu -->
+		<Grid Grid.Row="1" Margin="60,10">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="*"/>
+				<ColumnDefinition Width="*"/>
+			</Grid.ColumnDefinitions>
+
+			<!-- Colonne gauche -->
+			<StackPanel Grid.Column="0" Margin="0,0,40,0">
+
+				<!-- Taille du texte -->
+				<TextBlock Text="Agrandir le texte" Style="{StaticResource Titre}"/>
+				<ComboBox x:Name="ComboTaille" 
+					Style="{StaticResource ComboStyle}"
+					Background="#2C2C2C"
+					Foreground="Black">
+					<ComboBoxItem Content="10"/>
+					<ComboBoxItem Content="15" IsSelected="True"/>
+					<ComboBoxItem Content="20"/>
+				</ComboBox>
+
+				<!-- Couleur des pions -->
+				<TextBlock Text="Changer les couleurs des pions"
+                           Style="{StaticResource Titre}"/>
+				<ComboBox x:Name="ComboCouleurs" 
+						  Style="{StaticResource ComboStyle}"
+						  Background="#2C2C2C"
+						  Foreground="Black">
+					<ComboBoxItem Content="Rouge"  IsSelected="True"/>
+					<ComboBoxItem Content="Bleu"/>
+					<ComboBoxItem Content="Vert"/>
+					<ComboBoxItem Content="Orange"/>
+					<ComboBoxItem Content="Rose"/>
+					<ComboBoxItem Content="Blanc"/>
+				</ComboBox>
+
+				<!-- Forme des pions -->
+				<TextBlock Text="Changer la forme des pions"
+                           Style="{StaticResource Titre}"/>
+				<ComboBox x:Name="ComboFormes" 
+						  Style="{StaticResource ComboStyle}"
+						  Background="#2C2C2C"
+						  Foreground="Black">
+					<ComboBoxItem Content="Rond"    IsSelected="True"/>
+					<ComboBoxItem Content="Triangle"/>
+					<ComboBoxItem Content="Carré"/>
+				</ComboBox>
+
+			</StackPanel>
+
+			<!-- Colonne droite -->
+			<StackPanel Grid.Column="1">
+
+				<!-- Contraste -->
+				<TextBlock Text="Changer le contraste"
+                           Style="{StaticResource Titre}"/>
+				<StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+					<TextBlock Text="Faible" Foreground="#AAA"
+                               FontSize="13" VerticalAlignment="Center"
+                               Margin="0,0,10,0"/>
+					<Slider x:Name="SliderContraste"
+                            Minimum="0" Maximum="100" Value="50"
+                            Width="200"
+                            VerticalAlignment="Center"
+                            Foreground="White"/>
+					<TextBlock Text="Fort" Foreground="#AAA"
+                               FontSize="13" VerticalAlignment="Center"
+                               Margin="10,0,0,0"/>
+				</StackPanel>
+
+				<!-- Apercu du pion -->
+				<TextBlock Text="Aperçu du pion" Style="{StaticResource Titre}"/>
+				<Border Width="80" Height="80"
+                        HorizontalAlignment="Left"
+                        Margin="0,5">
+					<Border x:Name="ConteneurApercu"
+							Width="80" Height="80"
+							HorizontalAlignment="Left"
+							Margin="0,5"/>
+				</Border>
+
+			</StackPanel>
+		</Grid>
+
+		<!-- Boutons bas -->
+		<StackPanel Grid.Row="2"
+                    Orientation="Horizontal"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center">
+
+			<Button Content="Prévisualiser"
+                    Style="{StaticResource BoutonAction}"
+                    Click="BtnPrevisualiser_Click"/>
+
+			<Button Content="Valider"
+                    Style="{StaticResource BoutonAction}"
+                    Background="#1A3A1A"
+                    Click="BtnValider_Click"/>
+
+		</StackPanel>
+
+	</Grid>
+</Page>
